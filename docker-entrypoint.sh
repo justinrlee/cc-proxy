@@ -7,7 +7,15 @@ echo "Environment variable BOOTSTRAP_HOSTNAME not set"
 exit 1
 fi
 
-sed -i "s|BOOTSTRAP_HOSTNAME|${BOOTSTRAP_HOSTNAME}|g" /usr/local/etc/haproxy/haproxy.cfg
+if [ -z ${ADMIN_API_HOSTNAME} ]; then
+echo "Environment variable ADMIN_API_HOSTNAME not set"
+exit 1
+fi
+
+sed -i \
+	-e "s|ADMIN_API_HOSTNAME|${ADMIN_API_HOSTNAME}|g" \
+	-e "s|BOOTSTRAP_HOSTNAME|${BOOTSTRAP_HOSTNAME}|g" \
+	/usr/local/etc/haproxy/haproxy.cfg
 
 cat /usr/local/etc/haproxy/haproxy.cfg
 
