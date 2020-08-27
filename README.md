@@ -22,4 +22,4 @@ Also, you'll need to point a number of DNS names at the HAProxy instance (or a T
 * b4-pkc-l9mv5.eastus2.azure.confluent.cloud
 * b5-pkc-l9mv5.eastus2.azure.confluent.cloud
 
-Image currently works for clusters with exactly 6 backend brokers.
+Image currently works for clusters with exactly 6 backend brokers.  Currently listens on port 9092 and forwards to the correct broker.  Does not currently handle Admin API.
