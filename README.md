@@ -8,9 +8,10 @@ Example usage:
 
 ```bash
 docker run -d --net=host \
+    -e CKU_COUNT=2 \
     -e ADMIN_API_HOSTNAME=pkac-4rnxk.eastus2.azure.confluent.cloud \
     -e BOOTSTRAP_HOSTNAME=pkc-l9mv5.eastus2.azure.confluent.cloud \
-    justinrlee/cc-proxy:1598569783
+    justinrlee/cc-proxy:1598576167
 ```
 
 You can get both the ADMIN API and the HOSTNAME from the Confluent Cloud CLI (leave off the protocol and port for both in the environment variables)
@@ -44,5 +45,3 @@ Also, you'll need to point a number of DNS names at the HAProxy instance (or a T
 * b4-pkc-l9mv5.eastus2.azure.confluent.cloud
 * b5-pkc-l9mv5.eastus2.azure.confluent.cloud
 * pkac-4rnxk.eastus2.azure.confluent.cloud
-
-Image currently works for clusters with exactly 6 backend brokers.  Currently listens on ports 443 and 9092 and forwards to the correct broker (and admin API).
